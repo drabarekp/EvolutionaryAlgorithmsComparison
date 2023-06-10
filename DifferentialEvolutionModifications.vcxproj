@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Downloads\codes\C version\cec17_test_func.cpp" />
+    <ClCompile Include="cec17_test_func.cpp" />
     <ClCompile Include="CEC17Wrapper.cpp" />
     <ClCompile Include="DifferentialEvolutionAlgorithm.cpp" />
     <ClCompile Include="DifferentialEvolutionModifications.cpp" />
