@@ -16,7 +16,7 @@ protected:
 	const double DIFFERENTAL_WEIGHT = 0.8;
 	const double RANGE_MIN = -100.0;
 	const double RANGE_MAX = 100.0;
-	const int ITERATIONS_COEFFICIENT = 100;
+	const int ITERATIONS_COEFFICIENT = 1000;
 	const double PRECISION = 0.00000001;
 
 	std::mt19937 randomEngine;
