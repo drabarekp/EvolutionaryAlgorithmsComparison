@@ -1,5 +1,6 @@
 #include "PopulationSuccessRuleDEAlgorithm.h"
 #include <algorithm>
+#include <iostream>
 
 double PopulationSuccessRuleDEAlgorithm::TuneMutationScope(double F, double& success, const std::vector<double>& population, std::vector<double>& prevPopulation)
 {
@@ -16,6 +17,7 @@ double PopulationSuccessRuleDEAlgorithm::TuneMutationScope(double F, double& suc
     std::vector<int> prevRanks;
 
     for (int i = 0;i < populationSize * 2;i++) {
+
         if (fmix[i].first == 0) {
             ranks.push_back(i);
         }
@@ -35,4 +37,9 @@ double PopulationSuccessRuleDEAlgorithm::TuneMutationScope(double F, double& suc
 
 
     return F * exp(success / DAMPING_FACTOR);
+}
+
+std::string PopulationSuccessRuleDEAlgorithm::GetName()
+{
+	return "DE_rand_1_bin_PSR";
 }

@@ -134,6 +134,8 @@
     <ClCompile Include="MedianSuccessRuleDEAlgorithm.cpp" />
     <ClCompile Include="ModifiedDEAlgorithm.cpp" />
     <ClCompile Include="PopulationSuccessRuleDEAlgorithm.cpp" />
+    <ClCompile Include="TestsRunner.cpp" />
+    <ClCompile Include="TestsRunner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CEC17Wrapper.h" />

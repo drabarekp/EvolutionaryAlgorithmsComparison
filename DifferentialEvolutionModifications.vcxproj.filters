@@ -36,6 +36,12 @@
     <ClCompile Include="PopulationSuccessRuleDEAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestsRunner.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestsRunner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DifferentialEvolutionAlgorithm.h">

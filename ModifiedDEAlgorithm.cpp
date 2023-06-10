@@ -1,7 +1,7 @@
 #include "ModifiedDEAlgorithm.h"
 #include <algorithm>
 
-std::vector<double> ModifiedDEAlgorithm::FindMinimum(std::function<double(std::vector<double>)> f, int n)
+std::vector<double> ModifiedDEAlgorithm::FindMinimum(std::function<double(std::vector<double>)> f, int n, const std::vector<double>& recordValues, std::vector<double>& recordsError, double bestValue)
 {
 	int populationSize = POPULATION_SIZE_COEFFICIENT * n;
 	std::vector<std::vector<double>> population = InitializePopulation(populationSize, n);
@@ -19,8 +19,11 @@ std::vector<double> ModifiedDEAlgorithm::FindMinimum(std::function<double(std::v
 
 	std::vector<double> prevPopulationValues = populationValues;
 
+	int iterations = n * ITERATIONS_COEFFICIENT;
+	int recordIndex = 0;
+
 	int t = 0;
-	while (t++ < ITERATIONS_NUMBER) {
+	while (t++ < iterations) {
 		for (int i = 0;i < populationSize;i++) {
 			std::vector<int> selectedIndividuals = SelectRandomIndividuals(populationSize, i);
 
@@ -44,6 +47,17 @@ std::vector<double> ModifiedDEAlgorithm::FindMinimum(std::function<double(std::v
 			}
 		}
 
+		if (t == recordValues[recordIndex] * iterations) {
+			recordsError.push_back(CalculateError(resultValue, bestValue));
+
+			if (recordsError[recordIndex] == 0) {
+				for (int i = recordIndex + 1;i < recordValues.size();i++) {
+					recordsError.push_back(0);
+				}
+				break;
+			}
+			recordIndex++;
+		}
 
 		F = TuneMutationScope(F, success, populationValues, prevPopulationValues);
 
