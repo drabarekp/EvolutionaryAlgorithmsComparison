@@ -11,7 +11,7 @@ void main()
 	std::vector<int> seeds;
 	for(int i = 1;i <= seedsNumber;i++)
 		seeds.push_back(i);
-	std::vector<int> dimensions = { 10, 20, 30 };
+	std::vector<int> dimensions = { 20};
 
 	TestsRunner::Run(seeds, dimensions);
 }
