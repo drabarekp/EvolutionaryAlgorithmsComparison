@@ -127,13 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Downloads\codes\C version\cec17_test_func.cpp" />
+    <ClCompile Include="cec17_test_func.cpp" />
     <ClCompile Include="CEC17Wrapper.cpp" />
     <ClCompile Include="DifferentialEvolutionAlgorithm.cpp" />
     <ClCompile Include="DifferentialEvolutionModifications.cpp" />
     <ClCompile Include="MedianSuccessRuleDEAlgorithm.cpp" />
     <ClCompile Include="ModifiedDEAlgorithm.cpp" />
     <ClCompile Include="PopulationSuccessRuleDEAlgorithm.cpp" />
+    <ClCompile Include="TestsRunner.cpp" />
+    <ClCompile Include="TestsRunner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CEC17Wrapper.h" />

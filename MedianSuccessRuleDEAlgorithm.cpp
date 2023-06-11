@@ -1,5 +1,6 @@
 #include "MedianSuccessRuleDEAlgorithm.h"
 #include <algorithm>
+#include <iostream>
 
 double MedianSuccessRuleDEAlgorithm::TuneMutationScope(double F, double& success, const std::vector<double>& population, std::vector<double>& prevPopulation)
 {
@@ -21,4 +22,9 @@ double MedianSuccessRuleDEAlgorithm::TuneMutationScope(double F, double& success
 	success = (1.0 - RELAXATION_FACTOR) * success + RELAXATION_FACTOR * z;
 	
 	return F * exp(success / DAMPING_FACTOR);
+}
+
+std::string MedianSuccessRuleDEAlgorithm::GetName()
+{
+	return "DE_rand_1_bin_MSR";
 }
