@@ -5,7 +5,7 @@
 class ModifiedDEAlgorithm : public DifferentalEvolutionAlgorithm {
 protected:
 	const double RELAXATION_FACTOR = 0.3;
-	const double DAMPING_FACTOR = 1.0;
+	const double DAMPING_FACTOR = 100.0;
 
 
 public:

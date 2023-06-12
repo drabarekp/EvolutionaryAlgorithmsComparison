@@ -6,7 +6,7 @@
 
 class PopulationSuccessRuleDEAlgorithm : public ModifiedDEAlgorithm {
 protected:
-	const double TARGET_SUCCESS = 0.4;
+	const double TARGET_SUCCESS = 0.2;
 
 public: 
 	PopulationSuccessRuleDEAlgorithm(int seed): ModifiedDEAlgorithm(seed) {}
