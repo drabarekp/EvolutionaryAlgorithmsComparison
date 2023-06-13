@@ -7,8 +7,6 @@
 #include <fstream>
 #include <string>
 
-const std::string TestsRunner::PATH = "C:\\Users\\agowo\\Desktop\\DifferentialEvolutionModifications\\data\\";
-
 void TestsRunner::Run(std::vector<int> seeds, std::vector<int> dimensions) {
 	std::vector<double> recordValues = { .01, .02, .03, .05, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1 };
 
@@ -16,9 +14,9 @@ void TestsRunner::Run(std::vector<int> seeds, std::vector<int> dimensions) {
 	MedianSuccessRuleDEAlgorithm* MSRalgorithm = new MedianSuccessRuleDEAlgorithm(0);
 	PopulationSuccessRuleDEAlgorithm* PSRalgorithm = new PopulationSuccessRuleDEAlgorithm(0);
 
-	TestsRunner::RunAlgorithmTest(algorithm, seeds, dimensions, recordValues);
-	TestsRunner::RunAlgorithmTest(MSRalgorithm, seeds, dimensions, recordValues);
-	TestsRunner::RunAlgorithmTest(PSRalgorithm, seeds, dimensions, recordValues);
+	RunAlgorithmTest(algorithm, seeds, dimensions, recordValues);
+	RunAlgorithmTest(MSRalgorithm, seeds, dimensions, recordValues);
+	RunAlgorithmTest(PSRalgorithm, seeds, dimensions, recordValues);
 }
 
 void TestsRunner::RunAlgorithmTest(DifferentalEvolutionAlgorithm* algorithm, std::vector<int> seeds, std::vector<int> dimensions, std::vector<double> recordValues) {
@@ -56,4 +54,5 @@ void TestsRunner::PrintResults(std::vector<std::vector<double>> results, int fun
 		file<<std::endl;
 	}
 	file.close();
+	std::cout<<"Results for algorithm "<< algorithmName <<", function "<<fun<<", dimension "<<dim<<" saved in "<<filename<<std::endl;
 }
