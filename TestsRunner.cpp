@@ -7,7 +7,7 @@
 #include <fstream>
 #include <string>
 
-const std::string TestsRunner::PATH = "C:\\Users\\agowo\\Desktop\\DifferentialEvolutionModifications\\data\\";
+const std::string TestsRunner::PATH = "C:\\Users\\Paweu\\Desktop\\DifferentialEvolutionModifications\\data\\";
 
 void TestsRunner::Run(std::vector<int> seeds, std::vector<int> dimensions) {
 	std::vector<double> recordValues = { .01, .02, .03, .05, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1 };
