@@ -27,7 +27,7 @@ void OutputProcessor::GetDimData(
 		AssessFile(filename, a, d, f);
 		std::cout << a << d << f << std::endl;
 
-		if (d != 10) continue;
+		if (d != dim_number) continue;
 
 		auto res = GetLastRowOfFile(path);
 		if (a == "M") {
@@ -124,6 +124,8 @@ void OutputProcessor::GetFunctionParametersTable(std::map<int, std::vector<doubl
 		GetParameters(func_values, best, worst, median, mean, stdev);
 		ofile << func_number << " & " << best << " & " << worst << " & " << median << " & " << mean << " & " << stdev << "\\\\\\hline" << "\n";
 	}
+
+	ofile.close();
 }
 
 void OutputProcessor::Parse10Dim(std::string dir_path) {
@@ -131,9 +133,12 @@ void OutputProcessor::Parse10Dim(std::string dir_path) {
 	std::map<int, std::vector<double>> msr_data;
 	std::map<int, std::vector<double>> psr_data;
 	GetDimData(basic_data, msr_data, psr_data, 10);
-	GetFunctionParametersTable(basic_data, dir_path + "\\basic10.txt");
-	GetFunctionParametersTable(msr_data, dir_path + "\\msr10.txt");
-	GetFunctionParametersTable(psr_data, dir_path + "\\psr10.txt");
+	GetFunctionParametersTable(basic_data, dir_path + "\\basic10_table.txt");
+	GetFunctionParametersTable(msr_data, dir_path + "\\msr10.txt_table");
+	GetFunctionParametersTable(psr_data, dir_path + "\\psr10_table.txt");
+	GetEmpiricalDistribution(basic_data, dir_path + "\\basic10_ecdf.txt");
+	GetEmpiricalDistribution(msr_data, dir_path + "\\msr10_ecdf.txt");
+	GetEmpiricalDistribution(psr_data, dir_path + "\\psr10_ecdf.txt");
 }
 
 void OutputProcessor::Parse30Dim(std::string dir_path) {
@@ -141,7 +146,36 @@ void OutputProcessor::Parse30Dim(std::string dir_path) {
 	std::map<int, std::vector<double>> msr_data;
 	std::map<int, std::vector<double>> psr_data;
 	GetDimData(basic_data, msr_data, psr_data, 30);
-	GetFunctionParametersTable(basic_data, dir_path + "\\basic30.txt");
-	GetFunctionParametersTable(msr_data, dir_path + "\\msr30.txt");
-	GetFunctionParametersTable(psr_data, dir_path + "\\psr30.txt");
+	GetFunctionParametersTable(basic_data, dir_path + "\\basic30_table.txt");
+	GetFunctionParametersTable(msr_data, dir_path + "\\msr30_table.txt");
+	GetFunctionParametersTable(psr_data, dir_path + "\\psr30_table.txt");
+	GetEmpiricalDistribution(basic_data, dir_path + "\\basic30_ecdf.txt");
+	GetEmpiricalDistribution(msr_data, dir_path + "\\msr30_ecdf.txt");
+	GetEmpiricalDistribution(psr_data, dir_path + "\\psr30_ecdf.txt");
+}
+
+void OutputProcessor::GetEmpiricalDistribution(std::map<int, std::vector<double>> rawValues, std::string output_path) {
+
+	std::ofstream ofile(output_path);
+	std::vector<double> all_values;
+
+	for (auto pair : rawValues) {
+		int func_number = pair.first;
+		auto func_values = pair.second;
+
+		all_values.insert(all_values.end(), func_values.begin(), func_values.end());
+	}
+
+	std::sort(all_values.begin(), all_values.end());
+
+	for (int i = 0; i < all_values.size(); i += 10) {
+		ofile << "(" << all_values[i] << ", " << (double)i / (double)all_values.size() << ") ";
+	}
+
+	ofile.close();
+}
+
+void OutputProcessor::ProcessAll(std::string output_dir_path) {
+	Parse10Dim(output_dir_path);
+	Parse30Dim(output_dir_path);
 }

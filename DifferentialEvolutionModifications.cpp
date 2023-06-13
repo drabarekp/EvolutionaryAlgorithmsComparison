@@ -22,5 +22,5 @@ void main()
 	std::map<int, std::vector<double>> a2;
 	std::map<int, std::vector<double>> a3;
 	op.GetDimData(a1, a2, a3, 10); */
-	op.Parse10Dim(".\\parsed_data");
+	op.ProcessAll(".\\parsed_data");
 }
