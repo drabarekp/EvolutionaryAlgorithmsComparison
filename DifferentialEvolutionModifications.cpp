@@ -16,11 +16,7 @@ void main()
 	std::vector<int> dimensions = { 20};
 	
 	TestsRunner::Run(seeds, dimensions);*/
-	std::cout << std::filesystem::current_path();
+
 	OutputProcessor op;
-	/*std::map<int, std::vector<double>> a1;
-	std::map<int, std::vector<double>> a2;
-	std::map<int, std::vector<double>> a3;
-	op.GetDimData(a1, a2, a3, 10); */
 	op.ProcessAll(".\\parsed_data");
 }
