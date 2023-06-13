@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,6 +134,7 @@
     <ClCompile Include="DifferentialEvolutionModifications.cpp" />
     <ClCompile Include="MedianSuccessRuleDEAlgorithm.cpp" />
     <ClCompile Include="ModifiedDEAlgorithm.cpp" />
+    <ClCompile Include="OutputProcessor.cpp" />
     <ClCompile Include="PopulationSuccessRuleDEAlgorithm.cpp" />
     <ClCompile Include="TestsRunner.cpp" />
     <ClCompile Include="TestsRunner.h" />
@@ -142,6 +144,7 @@
     <ClInclude Include="DifferentialEvolutionAlgorithm.h" />
     <ClInclude Include="MedianSuccessRuleDEAlgorithm.h" />
     <ClInclude Include="ModifiedDEAlgorithm.h" />
+    <ClInclude Include="OutputProcessor.h" />
     <ClInclude Include="PopulationSuccessRuleDEAlgorithm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
