@@ -19,6 +19,6 @@ void main()
 	testsRunner.Run(seeds, dimensions);*/
 
 	OutputProcessor op;
-	op.ProcessAll(".\\parsed_data");
+	op.ProcessAll(".\\parsed_test_data");
 
 }
