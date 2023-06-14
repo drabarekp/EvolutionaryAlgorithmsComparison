@@ -7,7 +7,7 @@
 double* OShift, * M, * y, * z, * x_bound;
 int ini_flag = 0, n_flag, func_flag, * SS;
 
-void main()
+int main()
 {
 	/*int seedsNumber = 10;
 	std::vector<int> seeds;
@@ -19,6 +19,6 @@ void main()
 	testsRunner.Run(seeds, dimensions);*/
 
 	OutputProcessor op;
-	op.ProcessAll(".\\parsed_test_data");
-
+	op.ProcessAll("./parsed_data");
+	
 }
