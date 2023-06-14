@@ -6,7 +6,7 @@
 
 class OutputProcessor {
 
-	std::string dir_path = ".\\data";
+	std::string dir_path = "./data";
 	std::string basic_algorithm_name = "DE_rand_1_bin";
 	std::string MSR_name = "DE_rand_1_bin_MSR";
 	std::string PSR_name = "DE_rand_1_bin_PSR";

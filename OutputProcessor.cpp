@@ -6,6 +6,7 @@
 #include <fstream>
 #include <algorithm>
 #include <numeric>
+#include <cmath>
 
 namespace fs = std::filesystem;
 
@@ -133,12 +134,12 @@ void OutputProcessor::Parse10Dim(std::string dir_path) {
 	std::map<int, std::vector<double>> msr_data;
 	std::map<int, std::vector<double>> psr_data;
 	GetDimData(basic_data, msr_data, psr_data, 10);
-	GetFunctionParametersTable(basic_data, dir_path + "\\basic10_table.txt");
-	GetFunctionParametersTable(msr_data, dir_path + "\\msr10.txt_table");
-	GetFunctionParametersTable(psr_data, dir_path + "\\psr10_table.txt");
-	GetEmpiricalDistribution(basic_data, dir_path + "\\basic10_ecdf.txt");
-	GetEmpiricalDistribution(msr_data, dir_path + "\\msr10_ecdf.txt");
-	GetEmpiricalDistribution(psr_data, dir_path + "\\psr10_ecdf.txt");
+	GetFunctionParametersTable(basic_data, dir_path + "/basic10_table.txt");
+	GetFunctionParametersTable(msr_data, dir_path + "/msr10.txt_table");
+	GetFunctionParametersTable(psr_data, dir_path + "/psr10_table.txt");
+	GetEmpiricalDistribution(basic_data, dir_path + "/basic10_ecdf.txt");
+	GetEmpiricalDistribution(msr_data, dir_path + "/msr10_ecdf.txt");
+	GetEmpiricalDistribution(psr_data, dir_path + "/psr10_ecdf.txt");
 }
 
 void OutputProcessor::Parse30Dim(std::string dir_path) {
@@ -146,12 +147,12 @@ void OutputProcessor::Parse30Dim(std::string dir_path) {
 	std::map<int, std::vector<double>> msr_data;
 	std::map<int, std::vector<double>> psr_data;
 	GetDimData(basic_data, msr_data, psr_data, 30);
-	GetFunctionParametersTable(basic_data, dir_path + "\\basic30_table.txt");
-	GetFunctionParametersTable(msr_data, dir_path + "\\msr30_table.txt");
-	GetFunctionParametersTable(psr_data, dir_path + "\\psr30_table.txt");
-	GetEmpiricalDistribution(basic_data, dir_path + "\\basic30_ecdf.txt");
-	GetEmpiricalDistribution(msr_data, dir_path + "\\msr30_ecdf.txt");
-	GetEmpiricalDistribution(psr_data, dir_path + "\\psr30_ecdf.txt");
+	GetFunctionParametersTable(basic_data, dir_path + "/basic30_table.txt");
+	GetFunctionParametersTable(msr_data, dir_path + "/msr30_table.txt");
+	GetFunctionParametersTable(psr_data, dir_path + "/psr30_table.txt");
+	GetEmpiricalDistribution(basic_data, dir_path + "/basic30_ecdf.txt");
+	GetEmpiricalDistribution(msr_data, dir_path + "/msr30_ecdf.txt");
+	GetEmpiricalDistribution(psr_data, dir_path + "/psr30_ecdf.txt");
 }
 
 void OutputProcessor::GetEmpiricalDistribution(std::map<int, std::vector<double>> rawValues, std::string output_path) {
